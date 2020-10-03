@@ -1,5 +1,6 @@
 package th.ac.ku.atm.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -40,5 +41,13 @@ public class BankAccountController {
         bankAccountService.editBankAccount(bankAccount);
         model.addAttribute("allBankAccounts", bankAccountService.getBankAccountList());
         return "redirect:/bankaccount";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteAccount(@PathVariable int id, @ModelAttribute BankAccount bankAccount, Model model) {
+        bankAccountService.deleteBankAccount(bankAccount);
+        model.addAttribute("bankAccount", bankAccountService.getBankAccountList());
+        return "redirect:/bankaccount";
+
     }
 }
