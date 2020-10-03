@@ -6,10 +6,6 @@
 <div layout:fragment="content" class="container">
     <h1>Open Bank Account</h1>
     <form th:action="@{/bankaccount}" method="POST">
-        <div class="form-group">
-            <label for="inputId">Id</label>
-            <input type="input" class="form-control" name="id" id="inputId">
-        </div>
 
         <div class="form-group">
             <label for="inputCustomerId">Customer Id</label>
@@ -32,7 +28,9 @@
     </form>
     <hr>
 
-    <table class="table table-bordered">
+    <h1>All Bank Accounts</h1>
+
+    <table class="table table-bordered table-striped">
         <thead class="thead-light">
         <tr>
             <th>Id</th>

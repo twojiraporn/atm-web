@@ -35,15 +35,13 @@ public class LoginController {
 
         // 2. if match, welcome user
         if (matchingCustomer != null) {
-            model.addAttribute("greeting",
-                    "Welcome, " + matchingCustomer.getName() + " Bank Accounts");
+            model.addAttribute("greeting", "Welcome, " + matchingCustomer.getName() + " Bank Accounts");
             model.addAttribute("bankaccounts", bankAccountService.getCustomerBankAccounts(customer.getId()));
 
             return "customeraccount";
         } else {
             // 3. not match, display that customer info is incorrection
-            model.addAttribute("greeting",
-                    "Can't find customer");
+            model.addAttribute("greeting", "Can't find customer");
             return "home";
         }
 
